@@ -4,39 +4,40 @@ namespace Ninjas
 {
 
 
- class Player{
-    public Health health;
-
-    public Movement movement;
-
-    public int attackDamage = 30;
-
-    public Player()
+    class Player
     {
-        this.health = new Health(100,100,100);
-    }
+        public Health health;
 
-    public void Move()
-    {
+        public Movement movement;
 
-    }
+        public int attackDamage = 30;
 
-/// <summary>
-/// Attack a target
-/// </summary>
-/// <returns> true if attack was succesful</returns>
-    public bool Attack(Enemy target)
-    {
-        if (target == null)
+        public Player()
         {
-            return false;
+            this.health = new Health(100, 100, 100);
         }
-        if(target.health.health == 0)
+
+        public void Move()
         {
-            return false;
+
         }
-        target.health.TakeDamage(attackDamage);
-        return true;
+
+        /// <summary>
+        /// Attack a target
+        /// </summary>
+        /// <returns> true if attack was succesful</returns>
+        public bool Attack(Health target)
+        {
+            if (target == null)
+            {
+                return false;
+            }
+            if (target.health == 0)
+            {
+                return false;
+            }
+            target.TakeDamage(attackDamage);
+            return true;
+        }
     }
- }   
 }
